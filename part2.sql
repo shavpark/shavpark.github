@@ -15,13 +15,10 @@ select *
 from passengers join flights
 on passengers.flight_id = flights.flight_id
 ;
-select *
-from passengers join airports
-on passengers.origin = airports.faa
-;
-select *
-from passengers join airports
-on passengers.destination = airports.faa
+select p.name, p.origin, a.name, p.destination, a1.name, p.flight_id
+from passengers p 
+join airports a on a.faa = p.origin
+join airports a1 on a1.faa = p.destination
 ;
 select passengers.name, passengers.origin, 
 passengers.destination, passengers.flight_id, flights.id, 
